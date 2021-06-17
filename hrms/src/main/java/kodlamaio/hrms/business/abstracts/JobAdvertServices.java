@@ -16,5 +16,6 @@ public interface JobAdvertServices {
 	DataResult<List<JobAdvert>> getByActive();
 	DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdverts();
 	DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdvertsSortDate();
+	DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdvertsDetails(String companyName);
 
 }

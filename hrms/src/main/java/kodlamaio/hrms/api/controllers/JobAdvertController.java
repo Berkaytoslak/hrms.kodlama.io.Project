@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobAdvertServices;
@@ -58,5 +59,9 @@ public class JobAdvertController {
 		return this.jobAdvertServices.getEmployersWithJobAdvertsSortDate();
 	}
 	
+	@GetMapping("/getEmployer/JobAdvert")
+	public DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdvertsDetails(@RequestParam("companyName") String companyName){
+		return this.jobAdvertServices.getEmployersWithJobAdvertsDetails(companyName);
+	}	
 
 }

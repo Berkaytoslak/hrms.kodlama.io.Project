@@ -18,6 +18,6 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer>{
 	@Query("Select new kodlamaio.hrms.entities.dtos.EmployersWithJobAdverts(emp.companyName,jb.jobDescription,jb.openPosition,jb.activeDate,jb.lastDate) From JobAdvert jb Inner Join jb.employers emp Where jb.isActive = true Order By jb.activeDate Desc")
 	List<EmployersWithJobAdverts> getEmployersWithJobAdvertsSortDate();
 	
-	/*@Query("Select new kodlamaio.hrms.entities.dtos.EmployersWithJobAdverts(emp.companyName,jb.jobDescription,jb.openPosition,jb.activeDate,jb.lastDate) From JobAdvert jb Inner Join jb.employers emp Where jb.isActive = true")
-	List<EmployersWithJobAdverts> getEmployersWithJobAdvertsDetails();*/
+	@Query("Select new kodlamaio.hrms.entities.dtos.EmployersWithJobAdverts(emp.companyName,jb.jobDescription,jb.openPosition,jb.activeDate,jb.lastDate) From JobAdvert jb Inner Join jb.employers emp Where jb.isActive = true and emp.companyName =:companyName")
+	List<EmployersWithJobAdverts> getEmployersWithJobAdvertsDetails(String companyName);
 }

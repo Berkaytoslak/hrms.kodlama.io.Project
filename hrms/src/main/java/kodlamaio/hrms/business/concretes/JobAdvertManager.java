@@ -29,7 +29,7 @@ public class JobAdvertManager implements JobAdvertServices{
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
 		return new SuccessDataResult<List<JobAdvert>>
-		(this.jobAdvertDao.findAll(),"Başlıklar Listelendi");
+		(this.jobAdvertDao.findAll(),"Tüm İş ilanları bilgileri Listelendi");
 	}
 	
 	@Override
@@ -81,13 +81,19 @@ public class JobAdvertManager implements JobAdvertServices{
 	@Override
 	public DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdverts() {
 		return new SuccessDataResult<List<EmployersWithJobAdverts>>
-		(this.jobAdvertDao.getEmployersWithJobAdverts(),"Data Listelendi");
+		(this.jobAdvertDao.getEmployersWithJobAdverts(),"Aktif iş ilanları Listelendi");
 	}
 
 	@Override
 	public DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdvertsSortDate() {
 		return new SuccessDataResult<List<EmployersWithJobAdverts>>
-		(this.jobAdvertDao.getEmployersWithJobAdvertsSortDate(),"Data Listelendi");
+		(this.jobAdvertDao.getEmployersWithJobAdvertsSortDate(),"İş ilanları tarihe göre Listelendi");
+	}
+
+	@Override
+	public DataResult<List<EmployersWithJobAdverts>> getEmployersWithJobAdvertsDetails(String companyName) {
+		return new SuccessDataResult<List<EmployersWithJobAdverts>>
+		(this.jobAdvertDao.getEmployersWithJobAdvertsDetails(companyName),"Şirketin aktif ilanları Listelendi");
 	}
 
 	
