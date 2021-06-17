@@ -84,6 +84,9 @@ public class CandidatesManager implements CandidatesServices{
 		else if(getByEmail(candidates.getEmail()).getData()!=null){
 			return new ErrorResult("Bu E-mail kullanılmaktadır.");
 		}
+		else if(getByIdentityNumber(candidates.getIdentityNumber()).getData()!=null){
+			return new ErrorResult("Bu TC kullanılmaktadır.");
+		}
 		else if(!emailCheckServices.checkIfRealEmail(candidates.getEmail())) {
 			return new ErrorResult("Email formati dogrulanamadi!");
 		}

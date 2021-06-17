@@ -5,9 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
 
 import kodlamaio.hrms.entities.abstracts.Entities;
 import lombok.AllArgsConstructor;
@@ -15,22 +14,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name="users")
-public class Users implements Entities{
+@AllArgsConstructor
+@Entity
+@Table(name="cities")
+public class Cities implements Entities{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="password")
-	private String password;
+	@Column(name="city")
+	private String city;
 	
 }

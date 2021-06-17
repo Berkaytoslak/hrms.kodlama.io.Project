@@ -50,7 +50,7 @@ public class EmployersMenager implements EmployersServices{
 		else if(!emailCheckServices.checkIfRealEmail(employers.getEmail())) {
 			return new ErrorResult("Email formati dogrulanamadi!");
 		}
-		else if (!employers.getPassword().equals(employers.getPasswordValidation())) {
+		if (!employers.getPassword().equals(employers.getPasswordValidation())) {
 			return new ErrorResult("Şifre tekrarı yanlış...");
 		}
 		else {

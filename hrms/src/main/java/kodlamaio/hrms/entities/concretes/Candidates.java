@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 @PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
 @Entity
 @Table(name="candidates")
+//@JsonIgnoreProperties({"passwordValidation","createdAt"})
 public class Candidates extends Users{
 	
 	@Column(name="first_name")

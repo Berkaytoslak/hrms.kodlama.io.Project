@@ -25,6 +25,8 @@ public class CheckMernisManager implements CheckMernisServices{
 		if (candidates == null) {
 			return false;
 		}
+		
+		
 		KPSPublicSoapProxy kpsPublicSoapProxy = new KPSPublicSoapProxy();
 
         boolean serviceResult=false;
@@ -43,8 +45,8 @@ public class CheckMernisManager implements CheckMernisServices{
             System.out.println("Geçerli bir kişi değil");
             
         }
-
         return serviceResult;
+        
 	}
 
 }
