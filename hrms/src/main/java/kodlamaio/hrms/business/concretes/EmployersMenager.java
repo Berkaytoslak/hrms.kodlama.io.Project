@@ -41,11 +41,19 @@ public class EmployersMenager implements EmployersServices{
 	public DataResult<Employers> getByEmail(String email) {
 		return new SuccessDataResult<Employers>(this.employersDao.findByEmail(email));
 	}
+	
+	@Override
+	public DataResult<Employers> getByPassword(String password) {
+		return new SuccessDataResult<Employers>(this.employersDao.findByPassword(password));
+	}
 
 	@Override
 	public Result add(Employers employers) {
 		if(getByEmail(employers.getEmail()).getData()!=null){
 			return new ErrorResult("Bu E-mail kullanılmaktadır.");
+		}
+		else if(getByPassword(employers.getPassword()).getData()!=null){
+			return new ErrorResult("Bu password kullanamazsınız.");
 		}
 		else if(!emailCheckServices.checkIfRealEmail(employers.getEmail())) {
 			return new ErrorResult("Email formati dogrulanamadi!");
@@ -62,5 +70,6 @@ public class EmployersMenager implements EmployersServices{
 			}
 		}
 	}
+
 
 }

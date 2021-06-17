@@ -41,12 +41,19 @@ public class UsersManager implements UsersServices{
 
 	@Override
 	public DataResult<Users> Login(Users users) {
-		if(findByUsersEmail(users.getEmail()).getData()!=null &&findByUsersPassword(users.getPassword()).getData() != null) {
-			return new SuccessDataResult<Users>("Giriş başarılı");
+		
+		try {
+			if(findByUsersEmail(users.getEmail()).getData()!=null &&findByUsersPassword(users.getPassword()).getData() != null) {
+				return new SuccessDataResult<Users>("Giriş başarılı");
+			}
+			else {
+				return new ErrorDataResult<Users>("Tekrar deneyiniz");
+			}
+			
+		} catch (Exception e) {
+			return new ErrorDataResult<Users>("Tekrar deneyiniz...");
 		}
-		else {
-			return new ErrorDataResult<Users>("Tekrar deneyiniz");
-		}
+		
 	}
 
 	

@@ -62,6 +62,11 @@ public class CandidatesManager implements CandidatesServices{
 	public DataResult<Candidates> getByEmail(String email) {
 		return new SuccessDataResult<Candidates>(this.candidatesDao.findByEmail(email));
 	}
+	
+	@Override
+	public DataResult<Candidates> getByPassword(String password) {
+		return new SuccessDataResult<Candidates>(this.candidatesDao.findByPassword(password));
+	}
 
 	@Override
 	public DataResult<Candidates> getByIdentityNumber(String identityNumber) {
@@ -84,6 +89,9 @@ public class CandidatesManager implements CandidatesServices{
 		else if(getByEmail(candidates.getEmail()).getData()!=null){
 			return new ErrorResult("Bu E-mail kullanılmaktadır.");
 		}
+		else if(getByPassword(candidates.getPassword()).getData()!=null){
+			return new ErrorResult("Bu password kullanılmaktadır.");
+		}
 		else if(getByIdentityNumber(candidates.getIdentityNumber()).getData()!=null){
 			return new ErrorResult("Bu TC kullanılmaktadır.");
 		}
@@ -103,6 +111,7 @@ public class CandidatesManager implements CandidatesServices{
 		}
 		
 	}
+	
 	
 
 }
