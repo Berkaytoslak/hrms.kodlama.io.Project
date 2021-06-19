@@ -23,7 +23,7 @@ public class CheckMernisManager implements CheckMernisServices{
 	public boolean checkIfRealTcNo(Candidates candidates) {
 		candidates = this.candidatesDao.findById(candidates.getId());
 		if (candidates == null) {
-			return false;
+			return true;
 		}
 		
 		

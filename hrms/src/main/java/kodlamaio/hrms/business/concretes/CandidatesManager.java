@@ -48,7 +48,6 @@ public class CandidatesManager implements CandidatesServices{
 		else {
 			return true;
 		}
-		
 	  
 	}
 

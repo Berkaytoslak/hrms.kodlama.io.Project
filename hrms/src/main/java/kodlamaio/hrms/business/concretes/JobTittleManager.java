@@ -27,8 +27,7 @@ public class JobTittleManager implements JobTittleServices{
 	@Override
 	public DataResult<List<JobTittles>> getAll(){
 		return new SuccessDataResult<List<JobTittles>>
-				(this.jobTittleDao.findAll(),"Başlıklar Listelendi");
-				
+				(this.jobTittleDao.findAll(),"İş Başlıkları Listelendi");
 	}
 
 	@Override

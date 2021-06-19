@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -51,6 +53,7 @@ public class JobAdvert {
 	private boolean isActive;
 	
 	@ManyToOne
+	@JsonIgnoreProperties({"hibernateLazyInitializer","handler","email","password","phoneNumber","webAdress","passwordValidation"})
 	@JoinColumn(name="employer_id")
 	private Employers employers;
 	

@@ -26,7 +26,7 @@ public class UsersManager implements UsersServices{
 	@Override
 	public DataResult<List<Users>> getAll() {
 		return new SuccessDataResult<List<Users>>
-		(this.usersDao.findAll(),"Users Listelendi.");
+		(this.usersDao.findAll(),"Kullanıcılar Listelendi.");
 	}
 
 	@Override
