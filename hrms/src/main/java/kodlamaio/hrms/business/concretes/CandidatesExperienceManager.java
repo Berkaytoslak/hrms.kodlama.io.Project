@@ -12,6 +12,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccsess.abstracts.CandidatesExperienceDao;
 import kodlamaio.hrms.entities.concretes.CandidatesExperience;
+import kodlamaio.hrms.entities.dtos.CandidatesExperienceCvDtos;
 
 @Service
 public class CandidatesExperienceManager implements CandidatesExperienceServices{
@@ -34,6 +35,18 @@ public class CandidatesExperienceManager implements CandidatesExperienceServices
 	public Result add(CandidatesExperience candidatesExperience) {
 		this.candidatesExperienceDao.save(candidatesExperience);
 		return new SuccessResult("Tum bilgiler dogrulandi! Kayit basarili!");
+	}
+
+	@Override
+	public DataResult<List<CandidatesExperienceCvDtos>> getCandidatesExperienceCvDtos() {
+		return new SuccessDataResult<List<CandidatesExperienceCvDtos>>
+		(this.candidatesExperienceDao.getCandidatesExperienceCvDtos(),"Özgeçmişlerin tecrübe bilgileri listelendi");
+	}
+
+	@Override
+	public DataResult<List<CandidatesExperienceCvDtos>> getCandidatesExperienceCvDtosLastDateSort(String firstName) {
+		return new SuccessDataResult<List<CandidatesExperienceCvDtos>>
+		(this.candidatesExperienceDao.getCandidatesExperienceCvDtosLastDateSort(firstName),"Kişiye Ait Özgeçmişler Listelendi");
 	}
 
 }

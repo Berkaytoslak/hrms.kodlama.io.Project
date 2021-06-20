@@ -8,21 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import kodlamaio.hrms.business.abstracts.CandidatesExperienceServices;
 import kodlamaio.hrms.business.abstracts.CandidatesSchoolServices;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.entities.dtos.CandidatesCvDtos;
-import kodlamaio.hrms.entities.dtos.EmployersWithJobAdverts;
+import kodlamaio.hrms.entities.dtos.CandidatesExperienceCvDtos;
 
 @RestController
 @RequestMapping("/api/CandidatesCv")
 public class CandidatesCVController {
 	
 private CandidatesSchoolServices candidatesSchoolServices;
+private CandidatesExperienceServices candidatesExperienceServices;
 
 	@Autowired
-	public CandidatesCVController(CandidatesSchoolServices candidatesSchoolServices) {
+	public CandidatesCVController(CandidatesSchoolServices candidatesSchoolServices, CandidatesExperienceServices candidatesExperienceServices) {
 		super();
 		this.candidatesSchoolServices = candidatesSchoolServices;
+		this.candidatesExperienceServices = candidatesExperienceServices;
 	}
 	
 	@GetMapping("/get/CandidatesCvSchool")
@@ -34,6 +37,16 @@ private CandidatesSchoolServices candidatesSchoolServices;
 	public DataResult<List<CandidatesCvDtos>> getCandidatesCvDtosEndedYearSort(@RequestParam("firstName") String firstName){
 		return this.candidatesSchoolServices.getCandidatesCvDtosEndedYearSort(firstName);
 	}	
+	
+	@GetMapping("/get/CandidatesCvExperiences")
+	public DataResult<List<CandidatesExperienceCvDtos>> getCandidatesExperienceCvDtos(){
+		return this.candidatesExperienceServices.getCandidatesExperienceCvDtos();
+	}
+	
+	@GetMapping("/get/sort/CandidatesCvExperiences")
+	public DataResult<List<CandidatesExperienceCvDtos>> getCandidatesExperienceCvDtosLastDateSort(@RequestParam("firstName") String firstName){
+		return this.candidatesExperienceServices.getCandidatesExperienceCvDtosLastDateSort(firstName);
+	}
 	
 	
 
