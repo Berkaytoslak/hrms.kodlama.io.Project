@@ -12,6 +12,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccsess.abstracts.CandidatesSchoolDao;
 import kodlamaio.hrms.entities.concretes.CandidatesSchool;
+import kodlamaio.hrms.entities.dtos.CandidatesCvDtos;
 
 @Service
 public class CandidatesSchoolManager implements CandidatesSchoolServices{
@@ -35,6 +36,18 @@ public class CandidatesSchoolManager implements CandidatesSchoolServices{
 	public Result add(CandidatesSchool candidatesSchool) {
 		this.candidatesSchoolDao.save(candidatesSchool);
 		return new SuccessResult("Tum bilgiler dogrulandi! Kayit basarili!");
+	}
+
+	@Override
+	public DataResult<List<CandidatesCvDtos>> getCandidatesCvDtos() {
+		return new SuccessDataResult<List<CandidatesCvDtos>>
+		(this.candidatesSchoolDao.getCandidatesCvDtos(),"Özgeçmişlerin okul bilgileri listelendi");
+	}
+
+	@Override
+	public DataResult<List<CandidatesCvDtos>> getCandidatesCvDtosEndedYearSort(String firstName) {
+		return new SuccessDataResult<List<CandidatesCvDtos>>
+		(this.candidatesSchoolDao.getCandidatesCvDtosEndedYearSort(firstName),"Kişiye Ait Özgeçmişler Listelendi");
 	}
 
 }
