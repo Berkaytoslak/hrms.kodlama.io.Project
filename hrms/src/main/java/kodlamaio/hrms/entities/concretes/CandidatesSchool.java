@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="candidates_school")
+@Table(name="candidates_school",schema = "hrms")
 public class CandidatesSchool {
 	
 	@Id

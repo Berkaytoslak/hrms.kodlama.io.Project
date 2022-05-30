@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +15,10 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccsess.abstracts.JobTittleDao;
 import kodlamaio.hrms.entities.concretes.JobTittles;
 @Service
+@RequiredArgsConstructor
 public class JobTittleManager implements JobTittleServices{
 
-	private JobTittleDao jobTittleDao;
-	
-	@Autowired
-	public JobTittleManager(JobTittleDao jobTittleDao) {
-		super();
-		this.jobTittleDao = jobTittleDao;
-	}
+	private final JobTittleDao jobTittleDao;
 
 	@Override
 	public DataResult<List<JobTittles>> getAll(){

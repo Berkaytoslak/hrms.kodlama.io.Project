@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.JOINED)
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="users")
+@Table(name="users",schema = "hrms")
 public class Users implements Entities{
 	
 	@Id

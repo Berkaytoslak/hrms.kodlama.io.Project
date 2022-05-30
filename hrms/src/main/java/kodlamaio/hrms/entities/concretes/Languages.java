@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="languages")
+@Table(name="languages",schema = "hrms")
 public class Languages {
 	
 	@Id

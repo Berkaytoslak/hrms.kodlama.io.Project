@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,19 +18,12 @@ import kodlamaio.hrms.dataAccsess.abstracts.EmployersDao;
 import kodlamaio.hrms.entities.concretes.Employers;
 
 @Service
+@RequiredArgsConstructor
 public class EmployersMenager implements EmployersServices{
 	
-	private EmployersDao employersDao;
-	private EmailCheckServices emailCheckServices;
-	private EmailValidationServices emailValidationServices;
-	
-	@Autowired
-	public EmployersMenager(EmployersDao employersDao,EmailCheckServices emailCheckServices,EmailValidationServices emailValidationServices) {
-		super();
-		this.employersDao = employersDao;
-		this.emailCheckServices = emailCheckServices;
-		this.emailValidationServices = emailValidationServices;
-	}
+	private final EmployersDao employersDao;
+	private final EmailCheckServices emailCheckServices;
+	private final EmailValidationServices emailValidationServices;
 
 	@Override
 	public DataResult<List<Employers>> getAll() {

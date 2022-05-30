@@ -3,6 +3,7 @@ package kodlamaio.hrms.business.concretes;
 import java.util.List;
 import java.util.Objects;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,23 +20,14 @@ import kodlamaio.hrms.dataAccsess.abstracts.CandidatesDao;
 import kodlamaio.hrms.entities.concretes.Candidates;
 
 @Service
+@RequiredArgsConstructor
 public class CandidatesManager implements CandidatesServices{
 	
-	private CheckMernisServices checkMernisServices;
-	private CandidatesDao candidatesDao;
-	private EmailCheckServices emailCheckServices;
-	private EmailValidationServices emailValidationServices;
-	
-	
-	@Autowired
-	public CandidatesManager(CandidatesDao candidatesDao, CheckMernisServices checkMernisServices,EmailCheckServices emailCheckServices,EmailValidationServices emailValidationServices) {
-		super();
-		this.candidatesDao = candidatesDao;
-		this.checkMernisServices = checkMernisServices;
-		this.emailCheckServices = emailCheckServices;
-		this.emailValidationServices = emailValidationServices;
-		
-	}
+	private final CheckMernisServices checkMernisServices;
+	private final CandidatesDao candidatesDao;
+	private final EmailCheckServices emailCheckServices;
+	private final EmailValidationServices emailValidationServices;
+
 	private boolean validationForCandidate(Candidates candidate) {
 		if (Objects.isNull(candidate.getIdentityNumber()) 
 				|| Objects.isNull(candidate.getFirstName()) 

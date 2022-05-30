@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +12,10 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.dataAccsess.abstracts.EmployeesDao;
 import kodlamaio.hrms.entities.concretes.Employees;
 @Service
+@RequiredArgsConstructor
 public class EmployeesManager implements EmployeesServices{
-	private EmployeesDao employeesDao;
-	
-	@Autowired
-	public EmployeesManager(EmployeesDao employeesDao) {
-		super();
-		this.employeesDao = employeesDao;
-	}
 
+	private final EmployeesDao employeesDao;
 
 	@Override
 	public DataResult<List<Employees>> getAll() {

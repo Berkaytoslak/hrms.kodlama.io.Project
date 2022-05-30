@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="links_type")
+@Table(name="links_type",schema = "hrms")
 public class LinksType {
 	
 	@Id

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.dataAccsess.abstracts.CandidatesDao;
 import kodlamaio.hrms.entities.concretes.Candidates;
-import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
+//import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
 @Service
 
 public class CheckMernisManager implements CheckMernisServices{
@@ -27,9 +27,9 @@ public class CheckMernisManager implements CheckMernisServices{
 		}
 		
 		
-		KPSPublicSoapProxy kpsPublicSoapProxy = new KPSPublicSoapProxy();
+		//KPSPublicSoapProxy kpsPublicSoapProxy = new KPSPublicSoapProxy();
 
-        boolean serviceResult=false;
+        /*boolean serviceResult=false;
 
         try {
 
@@ -45,7 +45,8 @@ public class CheckMernisManager implements CheckMernisServices{
             System.out.println("Geçerli bir kişi değil");
             
         }
-        return serviceResult;
+        return serviceResult;*/
+		return true;
         
 	}
 

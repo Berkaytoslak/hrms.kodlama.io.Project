@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="candidates_languages")
+@Table(name="candidates_languages",schema = "hrms")
 public class CandidatesLanguages {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

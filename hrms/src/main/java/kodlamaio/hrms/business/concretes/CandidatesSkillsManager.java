@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +15,10 @@ import kodlamaio.hrms.dataAccsess.abstracts.CandidatesSkillsDao;
 import kodlamaio.hrms.entities.concretes.CandidatesSkills;
 
 @Service
+@RequiredArgsConstructor
 public class CandidatesSkillsManager implements CandidatesSkillsServices{
 	
-	private CandidatesSkillsDao candidatesSkillsDao;
-
-	@Autowired
-	public CandidatesSkillsManager(CandidatesSkillsDao candidatesSkillsDao) {
-		super();
-		this.candidatesSkillsDao = candidatesSkillsDao;
-	}
+	private final CandidatesSkillsDao candidatesSkillsDao;
 
 	@Override
 	public DataResult<List<CandidatesSkills>> getAll() {

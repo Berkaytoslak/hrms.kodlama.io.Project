@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +14,10 @@ import kodlamaio.hrms.dataAccsess.abstracts.UsersDao;
 import kodlamaio.hrms.entities.concretes.Users;
 
 @Service
+@RequiredArgsConstructor
 public class UsersManager implements UsersServices{
 	
-	private UsersDao usersDao;
-	
-	@Autowired
-	public UsersManager(UsersDao usersDao) {
-		super();
-		this.usersDao = usersDao;
-	}
+	private final UsersDao usersDao;
 
 	@Override
 	public DataResult<List<Users>> getAll() {

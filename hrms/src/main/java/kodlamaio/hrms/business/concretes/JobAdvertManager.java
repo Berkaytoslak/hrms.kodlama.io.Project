@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +17,10 @@ import kodlamaio.hrms.entities.concretes.JobAdvert;
 import kodlamaio.hrms.entities.dtos.EmployersWithJobAdverts;
 
 @Service
+@RequiredArgsConstructor
 public class JobAdvertManager implements JobAdvertServices{
 	
-	private JobAdvertDao jobAdvertDao;
-
-	@Autowired
-	public JobAdvertManager(JobAdvertDao jobAdvertDao) {
-		super();
-		this.jobAdvertDao = jobAdvertDao;
-	}
+	private final JobAdvertDao jobAdvertDao;
 
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {

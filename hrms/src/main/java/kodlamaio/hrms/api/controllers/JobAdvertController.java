@@ -2,6 +2,7 @@ package kodlamaio.hrms.api.controllers;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,16 +18,11 @@ import kodlamaio.hrms.entities.concretes.JobAdvert;
 import kodlamaio.hrms.entities.dtos.EmployersWithJobAdverts;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/JobTittles")
 public class JobAdvertController {
 	
-	private JobAdvertServices jobAdvertServices;
-
-	@Autowired
-	public JobAdvertController(JobAdvertServices jobAdvertServices) {
-		super();
-		this.jobAdvertServices = jobAdvertServices;
-	}
+	private final JobAdvertServices jobAdvertServices;
 	
 	@GetMapping("/getAll/JobAdvert")
 	public DataResult<List<JobAdvert>> getAll(){

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="job_advertisement")
+@Table(name="job_advertisement",schema = "hrms")
 public class JobAdvert {
 	
 	@Id

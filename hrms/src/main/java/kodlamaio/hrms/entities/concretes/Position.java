@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="position")
+@Table(name="position",schema = "hrms")
 public class Position {
 	
 	@Id

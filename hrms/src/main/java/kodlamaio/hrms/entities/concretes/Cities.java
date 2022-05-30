@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="cities")
+@Table(name="cities",schema = "hrms")
 public class Cities implements Entities{
 	
 	@Id

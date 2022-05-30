@@ -2,6 +2,7 @@ package kodlamaio.hrms.api.controllers;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,18 +16,13 @@ import kodlamaio.hrms.entities.dtos.CandidatesCvDtos;
 import kodlamaio.hrms.entities.dtos.CandidatesExperienceCvDtos;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/CandidatesCv")
 public class CandidatesCVController {
 	
-private CandidatesSchoolServices candidatesSchoolServices;
-private CandidatesExperienceServices candidatesExperienceServices;
+	private final CandidatesSchoolServices candidatesSchoolServices;
+	private final CandidatesExperienceServices candidatesExperienceServices;
 
-	@Autowired
-	public CandidatesCVController(CandidatesSchoolServices candidatesSchoolServices, CandidatesExperienceServices candidatesExperienceServices) {
-		super();
-		this.candidatesSchoolServices = candidatesSchoolServices;
-		this.candidatesExperienceServices = candidatesExperienceServices;
-	}
 	
 	@GetMapping("/get/CandidatesCvSchool")
 	public DataResult<List<CandidatesCvDtos>> getCandidatesCvDtos(){

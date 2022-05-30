@@ -1,4 +1,4 @@
-package tr.gov.nvi.tckimlik.WS;
+/*package tr.gov.nvi.tckimlik.WS;
 
 public class KPSPublicSoapProxy implements tr.gov.nvi.tckimlik.WS.KPSPublicSoap {
   private String _endpoint = null;
@@ -51,4 +51,4 @@ public class KPSPublicSoapProxy implements tr.gov.nvi.tckimlik.WS.KPSPublicSoap 
   }
   
   
-}
+}*/

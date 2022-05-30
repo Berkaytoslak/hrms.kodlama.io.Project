@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package tr.gov.nvi.tckimlik.WS;
+/*package tr.gov.nvi.tckimlik.WS;
 
 public class KPSPublicSoapStub extends org.apache.axis.client.Stub implements tr.gov.nvi.tckimlik.WS.KPSPublicSoap {
     private java.util.Vector cachedSerClasses = new java.util.Vector();
@@ -129,4 +129,4 @@ public class KPSPublicSoapStub extends org.apache.axis.client.Stub implements tr
 }
     }
 
-}
+}*/

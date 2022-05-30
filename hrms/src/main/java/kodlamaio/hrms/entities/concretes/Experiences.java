@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="experiences")
+@Table(name="experiences",schema = "hrms")
 public class Experiences {
 	
 	@Id

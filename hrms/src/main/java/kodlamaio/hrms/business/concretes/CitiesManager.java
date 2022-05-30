@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.concretes;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +13,10 @@ import kodlamaio.hrms.dataAccsess.abstracts.CitiesDao;
 import kodlamaio.hrms.entities.concretes.Cities;
 
 @Service
+@RequiredArgsConstructor
 public class CitiesManager implements CitiesServices{
 	
-	private CitiesDao citiesDao;
-
-	@Autowired
-	public CitiesManager(CitiesDao citiesDao) {
-		super();
-		this.citiesDao = citiesDao;
-	}
+	private final CitiesDao citiesDao;
 
 	@Override
 	public DataResult<List<Cities>> getAll() {
