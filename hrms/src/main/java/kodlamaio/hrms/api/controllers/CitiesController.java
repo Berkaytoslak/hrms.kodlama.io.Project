@@ -23,6 +23,8 @@ public class CitiesController {
 	public DataResult<List<Cities>> getAll(){
 		return this.citiesServices.getAll();
 	}
+
+	//jdbc:postgresql://host.docker.internal:5432/hrmss
 	
 	
 }

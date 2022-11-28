@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: hrms
+  jpa:
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  datasource:
+    url: jdbc:postgresql://${DB_URL:host.docker.internal}:5432/hrmss
+    username: postgres
+    password: xberkayx
+server:
+  port: 8081
+gateway:
+  url: http://localhost:8080
